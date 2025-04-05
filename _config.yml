@@ -1,0 +1,37 @@
+# Site settings
+title: Igor Peschinskiy
+email: igor.peschinskiy@gmail.com
+description: >-
+  Personal technical blog about IT-relevant topics
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://peschinskiy.github.io" # the base hostname & protocol for your site
+github_username: peschinskiy
+
+# Build settings
+markdown: kramdown
+permalink: /:title/
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Jekyll settings
+highlighter: rouge
+excerpt_separator: <!--more-->
+show_excerpts: true
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - .github
+  - README.md
+  - memory-bank

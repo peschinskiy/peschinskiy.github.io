@@ -1,1 +1,38 @@
-Main Page
+---
+layout: default
+title: Posts
+---
+
+<div class="home">
+    <h1>Recent Posts</h1>
+    
+    {% if site.posts.size > 0 %}
+    <ul class="posts-list">
+        {% for post in site.posts %}
+        <li class="post-item">
+            <h2 class="post-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            </h2>
+            <div class="post-meta">
+                <time datetime="{{ post.date | date_to_xmlschema }}">
+                    {{ post.date | date: "%B %-d, %Y" }}
+                </time>
+                {% if post.categories.size > 0 %}
+                <span class="post-categories">
+                    {% for category in post.categories %}
+                    <span class="post-category">{{ category }}</span>
+                    {% endfor %}
+                </span>
+                {% endif %}
+            </div>
+            <div class="post-excerpt">
+                {{ post.excerpt }}
+            </div>
+            <a href="{{ post.url | relative_url }}" class="post-link">Read more &raquo;</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No posts yet. Check back soon!</p>
+    {% endif %}
+</div>
