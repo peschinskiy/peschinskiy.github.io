@@ -26,6 +26,9 @@
 - Optimize images before adding to the repository
 - Follow front matter standards for all content files
 
+## Documentation guidelines
+- Maintain README.md with a list of main features and technologies used
+
 ## Testing guidelines
 - Write unit tests for core functionality
 
