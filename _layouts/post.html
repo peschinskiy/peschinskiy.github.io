@@ -93,7 +93,7 @@ layout: default
             <h3>Share this post:</h3>
             <ul class="share-buttons">
                 <li><a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url | url_encode }}&via={{ site.twitter.username }}" target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter"><i class="fab fa-twitter"></i> Twitter</a></li>
-                <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url | url_encode }}&title={{ page.title | url_encode }}&summary={{ page.excerpt | strip_html | strip_newlines | truncate: 160 | url_encode }}&source={{ site.title | url_encode }}" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
             </ul>
         </div>
         {% endif %}

@@ -2,7 +2,7 @@
 layout: post
 title: "Making Mac and Windows Keyboard Layouts Compatible for Power Users"
 date: 2025-04-05 10:12:00 +0200
-categories: [General]
+categories: [Tutorial]
 tags: [keyboard, os, scripting]
 ---
 
