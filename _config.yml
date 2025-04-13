@@ -68,5 +68,6 @@ exclude:
   - vendor
   - .git
   - .github
+  - .roo
   - README.md
   - memory-bank
