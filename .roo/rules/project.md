@@ -1,4 +1,4 @@
-# Cline Rules for peschinskiy.github.io
+# Roo-Code Rules for peschinskiy.github.io
 
 ## Project Structure
 - Follow Jekyll's standard directory structure conventions
