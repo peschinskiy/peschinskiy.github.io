@@ -40,7 +40,7 @@ plugins:
   - jekyll-sitemap
 
 # SEO settings
-logo: /assets/images/logo.png # Path to your site logo (will create this later)
+logo: /assets/images/logo.png
 google_analytics: G-780EJPX0MS
 
 # Default settings for different content types
