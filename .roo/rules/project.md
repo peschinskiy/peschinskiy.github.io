@@ -50,3 +50,10 @@
 - Consider adding dark mode support
 - Evaluate need for search functionality as content grows
 - Plan for internationalization if audience requires it
+
+## Best Practices to Maintain
+1. Always include descriptive titles and meta descriptions for new content
+2. Use heading tags (h1, h2, h3) hierarchically
+3. Update the sitemap when adding new content
+4. Optimize images with alt text
+5. Use meaningful URLs with keywords
