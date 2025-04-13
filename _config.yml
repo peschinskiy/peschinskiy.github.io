@@ -41,7 +41,7 @@ plugins:
 
 # SEO settings
 logo: /assets/images/logo.png # Path to your site logo (will create this later)
-google_analytics: # UA-XXXXXXXX-X or G-XXXXXXXXXX (uncomment and fill when ready)
+google_analytics: G-780EJPX0MS
 
 # Default settings for different content types
 defaults:
