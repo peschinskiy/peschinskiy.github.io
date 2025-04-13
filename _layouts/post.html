@@ -1,15 +1,72 @@
 ---
 layout: default
 ---
-<article class="post">
+<!-- JSON-LD structured data for BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title | xml_escape }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name }}"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  {% if page.image %}
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ page.image | absolute_url }}"
+  },
+  {% endif %}
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.logo | absolute_url }}"
+    }
+  },
+  "description": "{{ page.excerpt | strip_html | strip_newlines | truncate: 160 | xml_escape }}",
+  "keywords": [{% for tag in page.tags %}"{{ tag }}"{% unless forloop.last %},{% endunless %}{% endfor %}]
+}
+</script>
+
+<article class="post h-entry" itemscope itemtype="https://schema.org/BlogPosting">
     <header class="post-header">
-        <h1 class="post-title">{{ page.title }}</h1>
+        <h1 class="post-title p-name" itemprop="headline">{{ page.title }}</h1>
         <div class="post-meta">
-            <time datetime="{{ page.date | date_to_xmlschema }}">
+            <!-- Publication date -->
+            <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
                 {{ page.date | date: "%B %-d, %Y" }}
             </time>
+            
+            <!-- Last modified date if available -->
+            {% if page.last_modified_at and page.last_modified_at != page.date %}
+            <span class="post-updated">
+                (Updated: <time class="dt-updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">
+                    {{ page.last_modified_at | date: "%B %-d, %Y" }}
+                </time>)
+            </span>
+            {% endif %}
+            
+            <!-- Reading time estimate -->
+            <span class="post-reading-time">
+                {% assign words = content | number_of_words %}
+                {% if words < 360 %}
+                    ~1 min read
+                {% else %}
+                    ~{{ words | divided_by:180 }} min read
+                {% endif %}
+            </span>
+            
+            <!-- Categories -->
             {% if page.categories.size > 0 %}
-            <span class="post-categories">
+            <span class="post-categories" itemprop="articleSection">
                 {% for category in page.categories %}
                 <span class="post-category">{{ category }}</span>
                 {% endfor %}
@@ -17,18 +74,30 @@ layout: default
             {% endif %}
         </div>
     </header>
-
-    <div class="post-content">
-        {{ content }}
+<div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+</div>
     </div>
-
-    {% if page.tags.size > 0 %}
-    <footer class="post-footer">
-        <div class="post-tags">
+<footer class="post-footer">
+    <div class="container">
+        {% if page.tags.size > 0 %}
+        <div class="post-tags" itemprop="keywords">
             {% for tag in page.tags %}
             <span class="post-tag">{{ tag }}</span>
             {% endfor %}
         </div>
-    </footer>
-    {% endif %}
+        {% endif %}
+        
+        <!-- Share links -->
+        {% if page.share != false %}
+        <div class="post-share">
+            <h3>Share this post:</h3>
+            <ul class="share-buttons">
+                <li><a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url | url_encode }}&via={{ site.twitter.username }}" target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter">Twitter</a></li>
+                <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url | url_encode }}&title={{ page.title | url_encode }}&summary={{ page.excerpt | strip_html | strip_newlines | truncate: 160 | url_encode }}&source={{ site.title | url_encode }}" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">LinkedIn</a></li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</footer>
 </article>

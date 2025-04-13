@@ -2,10 +2,24 @@
 title: Igor Peschinskiy
 email: igor.peschinskiy@gmail.com
 description: >-
-  Personal technical blog about IT-relevant topics
+  Personal technical blog about IT-relevant topics by Igor Peschinskiy. Sharing expertise in backend development, C++, system architecture, and software engineering.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://peschinskiy.github.io" # the base hostname & protocol for your site
 github_username: peschinskiy
+lang: "en_US" # default language for SEO
+
+# Author settings
+author:
+  name: Igor Peschinskiy
+  email: igor.peschinskiy@gmail.com
+  github: peschinskiy
+  linkedin: peschinskiy
+
+social:
+  name: Igor Peschinskiy
+  links:
+    - https://github.com/peschinskiy
+    - https://linkedin.com/in/peschinskiy
 
 # Build settings
 markdown: kramdown
@@ -24,6 +38,27 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+
+# SEO settings
+logo: /assets/images/logo.png # Path to your site logo (will create this later)
+google_analytics: # UA-XXXXXXXX-X or G-XXXXXXXXXX (uncomment and fill when ready)
+
+# Default settings for different content types
+defaults:
+  # Default settings for all pages
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/default-social.jpg # Default social image (will create this later)
+      
+  # Default settings for posts
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post"
+      comments: false
+      share: true
 
 # Exclude from processing
 exclude:

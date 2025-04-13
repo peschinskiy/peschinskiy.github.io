@@ -1,14 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.lang | default: 'en_US' }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    
+    <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css">
+    
+    <!-- Include standardized SEO metadata -->
+    {% include seo-metadata.html %}
+    
+    <!-- SEO tags from plugin -->
     {% seo title=false %}
     {% feed_meta %}
+    
+    <!-- Google Analytics -->
+    {% if site.google_analytics %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ site.google_analytics }}');
+    </script>
+    {% endif %}
+    
+    <!-- Schema.org WebSite markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "{{ site.title }}",
+        "url": "{{ site.url }}",
+        "description": "{{ site.description }}",
+        "author": {
+            "@type": "Person",
+            "name": "{{ site.author.name }}",
+            "url": "{{ site.url }}"
+        }
+    }
+    </script>
 </head>
 <body>
     <header class="site-header">
@@ -30,7 +69,25 @@
     <footer class="site-footer">
         <div class="container">
             <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. Built with Jekyll.</p>
+            <div class="footer-links">
+                <a href="/sitemap/" aria-label="Sitemap">Sitemap</a>
+                {% if site.github_username %}
+                <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+                {% endif %}
+                {% if site.author.linkedin %}
+                <a href="https://linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+                {% endif %}
+                {% if site.twitter.username %}
+                <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a>
+                {% endif %}
+            </div>
         </div>
     </footer>
+    
+    <!-- Improve page load performance with preconnect for external resources -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    
+    <!-- SEO Optimization Script -->
+    <script src="/assets/js/seo-optimization.js"></script>
 </body>
 </html>

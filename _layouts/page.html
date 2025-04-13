@@ -1,12 +1,53 @@
 ---
 layout: default
 ---
-<article class="page">
-    <header class="page-header">
-        <h1 class="page-title">{{ page.title }}</h1>
-    </header>
+<!-- JSON-LD structured data for WebPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{ page.title | xml_escape }}",
+  "description": "{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 | xml_escape }}",
+  "url": "{{ page.url | absolute_url }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.logo | absolute_url }}"
+    }
+  },
+  "mainEntity": {
+    "@type": "WebPageElement",
+    "name": "{{ page.title | xml_escape }}"
+  }
+}
+</script>
 
-    <div class="page-content">
-        {{ content }}
-    </div>
+<article class="page" itemscope itemtype="https://schema.org/WebPage">
+    <header class="page-header">
+        <h1 class="page-title" itemprop="headline">{{ page.title }}</h1>
+    </header>
+<div class="page-content" itemprop="mainContentOfPage">
+    {{ content }}
+</div>
+
+<!-- Breadcrumbs for better navigation and SEO -->
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+            <meta itemprop="position" content="1" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">{{ page.title }}</span>
+            <meta itemprop="position" content="2" />
+        </li>
+    </ol>
+</nav>
+</article>
 </article>

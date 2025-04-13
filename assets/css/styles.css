@@ -183,6 +183,21 @@ th {
     font-size: 0.9em;
 }
 
+.footer-links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #6c757d;
+}
+
+.footer-links a:hover {
+    color: #0366d6;
+}
+
 /* Posts list */
 .posts-list {
     list-style: none;
@@ -233,6 +248,21 @@ th {
 .post .post-meta {
     color: #6c757d;
     font-size: 0.9em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.post-updated {
+    font-style: italic;
+}
+
+.post-reading-time {
+    background-color: #f6f8fa;
+    padding: 0.2em 0.6em;
+    border-radius: 4px;
+    font-size: 0.8em;
 }
 
 .post .post-categories, .post .post-tags {
@@ -267,6 +297,41 @@ th {
     border-top: 1px solid #e1e4e8;
 }
 
+.post-share {
+    margin-top: 30px;
+}
+
+.post-share h3 {
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.share-buttons {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.share-buttons li {
+    margin-bottom: 0;
+}
+
+.share-buttons a {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 4px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9em;
+    background-color: #0366d6;
+}
+
+.share-buttons a:hover {
+    background-color: #024ea4;
+    text-decoration: none;
+}
+
 /* Page */
 .page {
     margin-bottom: 45px;
@@ -274,6 +339,38 @@ th {
 
 .page .page-header {
     margin-bottom: 45px;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    margin-top: 45px;
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+.breadcrumbs ol {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.breadcrumbs li {
+    margin-bottom: 0;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+    content: " / ";
+    margin: 0 10px;
+    color: #e1e4e8;
+}
+
+.breadcrumbs a {
+    color: #6c757d;
+}
+
+.breadcrumbs a:hover {
+    color: #0366d6;
 }
 
 /* About page */
@@ -303,4 +400,30 @@ th {
     .site-nav {
         gap: 15px;
     }
+}
+
+/* 404 page */
+.page-not-found {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.page-not-found h1 {
+    font-size: 3em;
+    margin-bottom: 30px;
+}
+
+.page-not-found p {
+    font-size: 1.2em;
+    margin-bottom: 45px;
+}
+
+/* Lazy loading images */
+img.lazy {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+img.lazy.loaded {
+    opacity: 1;
 }
