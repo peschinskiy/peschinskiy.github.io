@@ -26,8 +26,8 @@ image: /assets/images/default-social.jpg
   <p>Feel free to reach out or follow me on these platforms:</p>
 
   <ul class="social-links">
-      <li><a href="https://github.com/peschinskiy" target="_blank" rel="noopener noreferrer" itemprop="sameAs">GitHub</a></li>
-      <li><a href="https://linkedin.com/in/peschinskiy" target="_blank" rel="noopener noreferrer" itemprop="sameAs">LinkedIn</a></li>
+      <li><a href="https://github.com/peschinskiy" target="_blank" rel="noopener noreferrer" itemprop="sameAs"><i class="fab fa-github"></i> GitHub</a></li>
+      <li><a href="https://linkedin.com/in/peschinskiy" target="_blank" rel="noopener noreferrer" itemprop="sameAs"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
   </ul>
   
   <h2>Skills</h2>

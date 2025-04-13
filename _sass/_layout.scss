@@ -70,6 +70,28 @@
     text-align: center;
     color: $color-secondary;
     font-size: 0.9em;
+    
+    .footer-links {
+        margin-top: $spacing-sm;
+        display: flex;
+        justify-content: center;
+        gap: $spacing-md;
+        
+        a {
+            display: inline-flex;
+            align-items: center;
+            color: $color-secondary;
+            
+            i {
+                margin-right: 0.3rem;
+            }
+            
+            &:hover {
+                color: darken($color-secondary, 15%);
+                text-decoration: none;
+            }
+        }
+    }
 }
 
 // Posts list
@@ -160,6 +182,62 @@
     .post-footer {
         padding-top: $spacing-md;
         border-top: 1px solid $color-border;
+        
+        .post-share {
+            margin-top: $spacing-md;
+            
+            h3 {
+                font-size: 1.1em;
+                margin-bottom: $spacing-sm;
+            }
+            
+            .share-buttons {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                gap: $spacing-md;
+                margin-top: $spacing-sm;
+                
+                li {
+                    margin-bottom: 0;
+                }
+                
+                a {
+                    display: inline-flex;
+                    align-items: center;
+                    padding: 0.5rem 1rem;
+                    border-radius: $border-radius;
+                    transition: $transition-base;
+                    font-weight: 500;
+                    
+                    i {
+                        margin-right: 0.5rem;
+                    }
+                    
+                    &:hover {
+                        text-decoration: none;
+                    }
+                    
+                    &[aria-label="Share on Twitter"] {
+                        background-color: #1DA1F2;
+                        color: white;
+                        
+                        &:hover {
+                            background-color: darken(#1DA1F2, 10%);
+                        }
+                    }
+                    
+                    &[aria-label="Share on LinkedIn"] {
+                        background-color: #0077B5;
+                        color: white;
+                        
+                        &:hover {
+                            background-color: darken(#0077B5, 10%);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -182,5 +260,24 @@
     
     li {
         margin-bottom: 0;
+    }
+    
+    a {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background-color: $color-light-gray;
+        border-radius: $border-radius;
+        transition: $transition-base;
+        font-weight: 500;
+        
+        i {
+            margin-right: 0.5rem;
+        }
+        
+        &:hover {
+            background-color: darken($color-light-gray, 5%);
+            text-decoration: none;
+        }
     }
 }
