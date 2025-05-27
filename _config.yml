@@ -60,6 +60,11 @@ defaults:
       comments: false
       share: true
 
+  - scope:
+      path: "assets/images/seo"
+    values:
+      sitemap: false
+
 # Exclude from processing
 exclude:
   - Gemfile

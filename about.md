@@ -4,6 +4,7 @@ title: About
 permalink: /about/
 description: "Learn more about Igor Peschinskiy, a software engineer specializing in backend development, C++, system architecture, and software engineering."
 image: /assets/images/default-social.jpg
+last_modified_at: 2025-05-27T00:00:00+02:00
 ---
 <div itemscope itemtype="https://schema.org/Person">
   <meta itemprop="name" content="Igor Peschinskiy">
