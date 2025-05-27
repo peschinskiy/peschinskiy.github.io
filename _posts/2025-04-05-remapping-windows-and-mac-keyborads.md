@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Making Mac and Windows Keyboard Layouts Compatible for Power Users"
+title: "Making Mac and Windows Keyboard Layouts Compatible"
 date: 2025-04-05 10:12:00 +0200
 categories: [Tutorial]
 tags: [keyboard, os, scripting]
