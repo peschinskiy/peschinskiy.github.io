@@ -1,4 +1,6 @@
-# Roo-Code Rules for peschinskiy.github.io
+---
+alwaysApply: true
+---
 
 ## Project Structure
 - Follow Jekyll's standard directory structure conventions
