@@ -67,22 +67,40 @@ blockquote {
 
 code {
     font-family: $font-family-monospace;
+    font-size: 0.875em; // 14px instead of 16px for better fit
     padding: 0.2em 0.4em;
     background-color: $color-light-gray;
     border-radius: $border-radius;
+    word-break: break-word; // Emergency word breaking for very long strings
 }
 
 pre {
     font-family: $font-family-monospace;
+    font-size: 0.875em; // 14px instead of 16px
+    line-height: 1.5; // Optimized line height
     padding: $spacing-md;
     margin-bottom: $spacing-md;
-    overflow-x: auto;
+    max-width: 100%; // Respect container width constraints
+    white-space: pre-wrap; // Allow word wrapping while preserving whitespace
+    overflow-wrap: break-word; // Break long words if needed
     background-color: $color-light-gray;
     border-radius: $border-radius;
     
     code {
         padding: 0;
         background-color: transparent;
+        font-size: inherit; // Inherit from pre element
+    }
+}
+
+// Mobile optimizations for code blocks
+@media (max-width: 576px) {
+    pre, code {
+        font-size: 0.8125em; // 13px on mobile for better fit
+    }
+    
+    pre {
+        padding: $spacing-sm; // Reduced padding on mobile (15px instead of 30px)
     }
 }
 
