@@ -2,7 +2,8 @@
 ---
 
 body {
-    @import "variables";
-    @import "base";
-    @import "layout";
+@import "variables";
+@import "base";
+@import "layout";
+@import "syntax-highlighting";
 }
