@@ -1,76 +1,148 @@
-# Site settings
-title: pure++ | Igor Peschinskiy's Blog
-email: igor.peschinskiy@gmail.com
+# Minimal Mistakes Theme Configuration
+remote_theme: "mmistakes/minimal-mistakes@4.27.3"
+minimal_mistakes_skin: "default" # Options: default, air, aqua, contrast, dark, dirt, neon, mint, plum, sunrise
+
+# Site Settings
+locale: "en-US"
+title: "pure++" 
+title_separator: "|"
+subtitle: "Igor Peschinskiy's Blog"
+name: "Igor Peschinskiy"
 description: >-
-  Personal technical blog about IT-relevant topics by Igor Peschinskiy. Sharing expertise in backend development, C++, system architecture, and software engineering.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://peschinskiy.github.io" # the base hostname & protocol for your site
-github_username: peschinskiy
-lang: "en_US" # default language for SEO
+  Personal technical blog about IT-relevant topics by Igor Peschinskiy. 
+  About backend development, GIS, C++ and software engineering.
+url: "https://peschinskiy.github.io"
+baseurl: ""
+repository: "peschinskiy/peschinskiy.github.io"
+teaser: "/assets/images/default-teaser.jpg"
+logo: "/assets/images/logo.png"
+masthead_title: "pure++"
 
-# Author settings
+# SEO & Social
 author:
-  name: Igor Peschinskiy
-  email: igor.peschinskiy@gmail.com
-  github: peschinskiy
-  linkedin: peschinskiy
+  name: "Igor Peschinskiy"
+  avatar: "/assets/images/author-photo.png"
+  bio: "Software Developer"
+  location: "Europe"
+  email: "igor.peschinskiy@gmail.com"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/peschinskiy"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/peschinskiy"
 
+# Site Footer
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/peschinskiy"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/peschinskiy"
+
+# Reading Files
+include:
+  - .htaccess
+  - _pages
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - vendor
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/plugins
+  - assets/js/_main.js
+  - assets/js/vendor
+  - Capfile
+  - CHANGELOG
+  - config
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - log
+  - memory-bank
+  - node_modules
+  - package.json
+  - package-lock.json
+  - Rakefile
+  - README
+  - tmp
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-seo-tag
+
+# Archives
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+# HTML Compression
+compress_html:
+  clippings: all
+  ignore:
+    envs: development
+
+# Analytics
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-780EJPX0MS"
+
+# Site Search
+search: true
+
+# SEO
 social:
+  type: Person
   name: Igor Peschinskiy
   links:
-    - https://github.com/peschinskiy
-    - https://linkedin.com/in/peschinskiy
+    - "https://github.com/peschinskiy"
+    - "https://linkedin.com/in/peschinskiy"
 
-# Build settings
-markdown: kramdown
-permalink: /:title/
+# Post/Page Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: false
+      read_time: true
+      comments: false
+      share: true
+      related: true
+      show_date: true
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+# Sass/SCSS
 sass:
   sass_dir: _sass
   style: compressed
 
-# Jekyll settings
-highlighter: rouge
-excerpt_separator: <!--more-->
-show_excerpts: true
-
-# Plugins
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-sitemap
-
-# SEO settings
-logo: /assets/images/logo.png
-google_analytics: G-780EJPX0MS
-
-# Default settings for different content types
-defaults:
-  # Default settings for all pages
-  - scope:
-      path: ""
-    values:
-      image: /assets/images/default-social.jpg # Default social image (will create this later)
-      
-  # Default settings for posts
-  - scope:
-      path: "_posts"
-      type: "posts"
-    values:
-      layout: "post"
-      comments: false
-      share: true
-
-  - scope:
-      path: "assets/images/seo"
-    values:
-      sitemap: false
-
-# Exclude from processing
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor
-  - .git
-  - .github
-  - README.md
+# Outputting
+permalink: /:title/
+paginate: 10 # amount of posts to show
+paginate_path: /page:num/
+timezone: Europe/Berlin

@@ -1,11 +1,17 @@
 ---
-layout: post
+layout: single
 title: "Code Block Horizontal Scroll Test"
 description: "Test post for validating horizontal scroll fixes in code blocks"
 date: 2025-01-20 12:00:00 +0200
 published: false  # Do not publish on production or local builds. Use --unpublished to see it locally.
-categories: [Testing]
-tags: [css, development, testing]
+categories: 
+  - Testing
+tags: 
+  - css
+  - development
+  - testing
+excerpt: "Test post for validating horizontal scroll fixes in code blocks"
+sitemap: false
 ---
 
 # Code Block Horizontal Scroll Test

@@ -1,9 +1,14 @@
 ---
-layout: post
+layout: single
 title: "Making Mac and Windows Keyboard Layouts Compatible"
 date: 2025-04-05 10:12:00 +0200
-categories: [Tutorial]
-tags: [keyboard, os, scripting]
+categories: 
+  - Tutorial
+tags: 
+  - keyboard
+  - os
+  - scripting
+excerpt: "Solving keyboard layout inconsistencies between Mac and Windows machines for better productivity."
 ---
 
 I suddenly faced a problem of inconsistent keyboard layouts between my work Mac and home Windows laptops. It is practically impossible to work effectively and maintain blind typing skills when you're forced to switch physical and logical keyboards twice a day. When I can’t use an external keyboard—due to space constraints at my desk or while traveling—I had to come up with a compromise solution: remapping keys and shortcuts on both machines for better compatibility.
