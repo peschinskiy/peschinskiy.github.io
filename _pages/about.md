@@ -1,11 +1,10 @@
 ---
-layout: single
 title: "About"
 permalink: /about/
 author_profile: true
 ---
 
-Hi, I am Igor Peschinskiy, a software engineer at Yandex since 2019, focusing on backend development, data processing and infrastructure support.
+I am Igor Peschinskiy, a software engineer at Yandex since 2019, focusing on backend development, data processing and infrastructure support.
 My main areas of interest in tech are C++, functional programming, performance optimizations and GIS.
 
 I work at Yandex Maps, the largest cartography service in Russia with millions of daily users.

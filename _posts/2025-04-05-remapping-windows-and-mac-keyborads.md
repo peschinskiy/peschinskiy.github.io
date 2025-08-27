@@ -1,17 +1,18 @@
 ---
-layout: single
 title: "Making Mac and Windows Keyboard Layouts Compatible"
 date: 2025-04-05 10:12:00 +0200
 categories: 
-  - Tutorial
+  - Customization
 tags: 
   - keyboard
-  - os
+  - macos
+  - windows
   - scripting
 excerpt: "Solving keyboard layout inconsistencies between Mac and Windows machines for better productivity."
+toc_sticky: true
 ---
 
-I suddenly faced a problem of inconsistent keyboard layouts between my work Mac and home Windows laptops. It is practically impossible to work effectively and maintain blind typing skills when you're forced to switch physical and logical keyboards twice a day. When I can’t use an external keyboard—due to space constraints at my desk or while traveling—I had to come up with a compromise solution: remapping keys and shortcuts on both machines for better compatibility.
+I suddenly faced a problem of inconsistent keyboard layouts between my work Mac and home Windows laptops. It is practically impossible to work effectively and maintain blind typing skills when you're forced to switch physical and logical keyboards twice a day. When I can’t use an external keyboard - due to space constraints at my desk or while traveling - I had to come up with a compromise solution: remapping keys and shortcuts on both machines for better compatibility.
 
 <!--more-->
 
@@ -28,7 +29,7 @@ I suddenly faced a problem of inconsistent keyboard layouts between my work Mac 
 
 ## Goal
 
-As a long-term Windows and Linux user, I was very accustomed to traditional PC-style keyboards. However, the Mac keyboard turned out to be surprisingly convenient—even after decades of using something else. So, my goal was to mimic the Mac keyboard layout in Windows 11 as closely as possible, with minimal remapping on the Mac side. Ideally, the list of remappings in Windows should be as short as possible, reusing existing keys and shortcuts wherever appropriate.
+As a long-term Windows and Linux user, I was very accustomed to traditional PC-style keyboards. However, the Mac keyboard turned out to be surprisingly convenient - even after decades of using something else. So, my goal was to mimic the Mac keyboard layout in Windows 11 as closely as possible, with minimal remapping on the Mac side. Ideally, the list of remappings in Windows should be as short as possible, reusing existing keys and shortcuts wherever appropriate.
 
 ---
 
@@ -37,7 +38,7 @@ As a long-term Windows and Linux user, I was very accustomed to traditional PC-s
 ### On Mac
 
 - **Fn ↔ Ctrl**  
-  While the `Ctrl` key is less commonly used on macOS (many functions are handled by the `Command` key), it’s still important in some apps—especially those not fully adapted to Mac. Swapping `Fn` and `Ctrl` places them where they are on a standard Windows keyboard.
+  While the `Ctrl` key is less commonly used on macOS (many functions are handled by the `Command` key), it’s still important in some apps - especially those not fully adapted to Mac. Swapping `Fn` and `Ctrl` places them where they are on a standard Windows keyboard.
 
 - **Caps Lock → Esc**  
   Does anyone still use Caps Lock? I personally don’t. If you're using Vim keybindings in your editor, having an extra `Esc` key here is perfect.
@@ -47,7 +48,7 @@ As a long-term Windows and Linux user, I was very accustomed to traditional PC-s
 ### On Windows
 
 - **Win → Alt**  
-  This moves the `Alt` key one position left—like it is on a Mac keyboard.
+  This moves the `Alt` key one position left - like it is on a Mac keyboard.
 
 - **Alt → Ctrl**  
   This mimics the `Command` key on Mac. Common operations like copy-paste, select-all, undo, etc., differ only by this key.
@@ -56,13 +57,13 @@ As a long-term Windows and Linux user, I was very accustomed to traditional PC-s
   Same reasoning as on Mac.
 
 - **Right Ctrl → Win**  
-  While the `Win` key is sometimes considered a `Command` alternative, it's more limited in Windows and rarely used by third-party apps. Still, since it’s needed for native shortcuts, keeping it to the right of the spacebar is essential. I wanted a better solution here, but hit some technical limitations—more on that below.
+  While the `Win` key is sometimes considered a `Command` alternative, it's more limited in Windows and rarely used by third-party apps. Still, since it’s needed for native shortcuts, keeping it to the right of the spacebar is essential. I wanted a better solution here, but hit some technical limitations - more on that below.
 
 ---
 
 ## Shortcuts
 
-Windows is surprisingly restrictive when it comes to remapping system shortcuts. While macOS offers a generous set of options right in system settings, Windows makes it difficult at nearly every step. For example, when changing the keyboard layout, you can choose only from three predefined shortcuts (`Shift+Ctrl`, `` ` ``, or `Shift+Alt`). Custom shortcuts aren’t supported. So, we need external tools—and even then, the combination of remapped keys and custom shortcuts often fails in subtle ways.
+Windows is surprisingly restrictive when it comes to remapping system shortcuts. While macOS offers a generous set of options right in system settings, Windows makes it difficult at nearly every step. For example, when changing the keyboard layout, you can choose only from three predefined shortcuts (`Shift+Ctrl`, `` ` ``, or `Shift+Alt`). Custom shortcuts aren’t supported. So, we need external tools - and even then, the combination of remapped keys and custom shortcuts often fails in subtle ways.
 
 ### Custom Mappings
 
@@ -99,7 +100,7 @@ We’ll need two tools for Windows 11:
 - [Microsoft PowerToys](https://learn.microsoft.com/en-us/windows/powertoys/)
 - [AutoHotKey](https://www.autohotkey.com/)
 
-PowerToys is great for simple key remapping. The interface is user-friendly—you can apply remappings manually. But remember: **shortcut remappings are applied *after* key remappings!**
+PowerToys is great for simple key remapping. The interface is user-friendly - you can apply remappings manually. But remember: **shortcut remappings are applied *after* key remappings!**
 
 When you need more complex behavior (like layout-sensitive remaps), use AutoHotKey. It allows scripting virtually any input behavior.
 
@@ -159,7 +160,7 @@ Done!
 
 ## Limitations
 
-- Circular remappings (e.g. `Alt → Ctrl` and `Ctrl+Tab → Alt+Tab`) are tricky in AutoHotKey. I gave up and used PowerToys instead—you might have better luck.
+- Circular remappings (e.g. `Alt → Ctrl` and `Ctrl+Tab → Alt+Tab`) are tricky in AutoHotKey. I gave up and used PowerToys instead - you might have better luck.
 - System keys like `Alt`, `Ctrl`, and `Win` can’t be freely reassigned due to Windows limitations. For example, mapping `Alt+Ctrl` to `Win` is not allowed.
 - The `Fn` key doesn’t send a scannable keycode and can’t be intercepted. So remapping `Fn+Ctrl` to act as `Win` isn’t feasible on most machines.
 
@@ -169,7 +170,7 @@ Done!
 
 Once everything is working, back it up!
 
-### For PowerToys:
+### PowerToys
 
 1. Open PowerToys → Settings → **Backup**
 2. Save the backup to `Documents\PowerToys\Backup`
@@ -179,7 +180,3 @@ You can upload both your PowerToys backup and your AutoHotKey script to:
 - [GitHub Gist](https://gist.github.com/)
 - Google Docs
 - Any cloud storage you prefer
-
----
-
-Let me know if you’re trying this with another layout or tool—I’d love to hear how you solved it.

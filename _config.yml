@@ -6,32 +6,14 @@ minimal_mistakes_skin: "default" # Options: default, air, aqua, contrast, dark, 
 locale: "en-US"
 title: "pure++" 
 title_separator: "|"
-subtitle: "Igor Peschinskiy's Blog"
+subtitle: "Igor Peschinskiy's Tech Blog"
 name: "Igor Peschinskiy"
 description: >-
-  Personal technical blog about IT-relevant topics by Igor Peschinskiy. 
-  About backend development, GIS, C++ and software engineering.
+  Personal technical blog about backend development, GIS, C++ and other technical stuff by Igor Peschinskiy. 
 url: "https://peschinskiy.github.io"
 baseurl: ""
 repository: "peschinskiy/peschinskiy.github.io"
-teaser: "/assets/images/default-teaser.jpg"
 logo: "/assets/images/logo.png"
-masthead_title: "pure++"
-
-# SEO & Social
-author:
-  name: "Igor Peschinskiy"
-  avatar: "/assets/images/author-photo.png"
-  bio: "Software Developer"
-  location: "Europe"
-  email: "igor.peschinskiy@gmail.com"
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/peschinskiy"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/in/peschinskiy"
 
 # Site Footer
 footer:
@@ -43,13 +25,41 @@ footer:
       icon: "fab fa-fw fa-linkedin"
       url: "https://linkedin.com/in/peschinskiy"
 
+# SEO & Social
+author:
+  name: "Igor Peschinskiy"
+  avatar: "/assets/images/author-photo.png"
+  bio: "Software Engineer"
+  location: "Europe"
+  email: "igor.peschinskiy@gmail.com"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/peschinskiy"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/peschinskiy"
+
+social:
+  type: Person
+  name: Igor Peschinskiy
+  links:
+    - "https://github.com/peschinskiy"
+    - "https://linkedin.com/in/peschinskiy"
+
+og_image: "/assets/images/logo.png"
+
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-780EJPX0MS"
+
 # Reading Files
 include:
   - .htaccess
   - _pages
 exclude:
-  - "*.sublime-project"
-  - "*.sublime-workspace"
+  - "*.code-workspace"
   - vendor
   - .asset-cache
   - .bundle
@@ -91,28 +101,8 @@ tag_archive:
   type: liquid
   path: /tags/
 
-# HTML Compression
-compress_html:
-  clippings: all
-  ignore:
-    envs: development
-
-# Analytics
-analytics:
-  provider: "google-gtag"
-  google:
-    tracking_id: "G-780EJPX0MS"
-
 # Site Search
 search: true
-
-# SEO
-social:
-  type: Person
-  name: Igor Peschinskiy
-  links:
-    - "https://github.com/peschinskiy"
-    - "https://linkedin.com/in/peschinskiy"
 
 # Post/Page Defaults
 defaults:
@@ -122,24 +112,33 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: false
       read_time: true
       comments: false
       share: true
       related: true
       show_date: true
+      toc: true
+      toc_sticky: true
+      toc_label: "Table of Contents"
   # _pages
   - scope:
       path: "_pages"
       type: pages
     values:
       layout: single
-      author_profile: true
+
+enable_copy_code_button: true
 
 # Sass/SCSS
 sass:
   sass_dir: _sass
   style: compressed
+
+# HTML Compression
+compress_html:
+  clippings: all
+  ignore:
+    envs: development
 
 # Outputting
 permalink: /:title/
