@@ -1,5 +1,4 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 search: false
 ---
 
@@ -7,6 +6,23 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+.github-link-with-icon {
+  text-decoration: none;
+}
+
+.github-link-with-icon:hover {
+  text-decoration: underline;
+}
+
+.github-link-with-icon .fa-github {
+  color: #33333333;
+  transition: color 0.2s ease;
+}
+
+.github-link-with-icon:hover .fa-github {
+  color: #0366d6;
+}
 
 /* Custom overrides for code blocks to maintain horizontal scroll fix */
 .highlight pre {

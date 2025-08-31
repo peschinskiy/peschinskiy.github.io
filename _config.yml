@@ -9,7 +9,7 @@ title_separator: "|"
 subtitle: "Igor Peschinskiy's Tech Blog"
 name: "Igor Peschinskiy"
 description: >-
-  Personal technical blog about backend development, GIS, C++ and other technical stuff by Igor Peschinskiy. 
+  pure++ is a technical blog about C++ and software engineering by Igor Peschinskiy
 url: "https://peschinskiy.github.io"
 baseurl: ""
 repository: "peschinskiy/peschinskiy.github.io"
@@ -105,6 +105,7 @@ tag_archive:
 search: true
 
 # Post/Page Defaults
+future: false
 defaults:
   # _posts
   - scope:
@@ -133,6 +134,10 @@ enable_copy_code_button: true
 sass:
   sass_dir: _sass
   style: compressed
+
+# Custom JavaScript
+footer_scripts:
+  - /assets/js/github-icons.js
 
 # HTML Compression
 compress_html:
