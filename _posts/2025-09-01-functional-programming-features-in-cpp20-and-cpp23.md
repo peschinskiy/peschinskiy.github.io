@@ -1,6 +1,6 @@
 ---
 title: "Functional Programming Features in C++20 and C++23"
-date: 2025-09-01 18:00:00 +0200
+date: 2025-09-01 20:02:00 +0200
 categories:
   - Software Engineering
 tags:
@@ -8,8 +8,7 @@ tags:
   - c++20
   - c++23
   - functional programming
-excerpt: "Showing how latest C++ features can be applied for functional style programming in real projects."
-published: false
+excerpt: "Showing how latest C++ features can be applied for functional-style programming in real projects."
 ---
 
 In this article I demonstrate functional programming paradigms by transforming a single-file C++17 JSON parser through six commits using C++20 and C++23 features.

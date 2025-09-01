@@ -9,7 +9,7 @@ title_separator: "|"
 subtitle: "Igor Peschinskiy's Tech Blog"
 name: "Igor Peschinskiy"
 description: >-
-  pure++ is a technical blog about C++ and software engineering by Igor Peschinskiy
+  pure++ is a technical blog focused on underexplored topics at the intersections of software engineering domains
 url: "https://peschinskiy.github.io"
 baseurl: ""
 repository: "peschinskiy/peschinskiy.github.io"

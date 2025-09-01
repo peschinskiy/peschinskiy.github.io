@@ -8,7 +8,7 @@ tags:
   - macos
   - windows
   - scripting
-excerpt: "Solving keyboard layout inconsistencies between Mac and Windows machines for better productivity."
+excerpt: "Solving keyboard layout inconsistencies between Mac and Windows machines for smooth transition between operating systems."
 ---
 
 I suddenly faced a problem of inconsistent keyboard layouts between my work Mac and home Windows laptops. It is practically impossible to work effectively and maintain blind typing skills when you're forced to switch physical and logical keyboards twice a day. When I can’t use an external keyboard - due to space constraints at my desk or while traveling - I had to come up with a compromise solution: remapping keys and shortcuts on both machines for better compatibility.
