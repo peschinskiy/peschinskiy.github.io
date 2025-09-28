@@ -15,7 +15,7 @@ Functional programming has had a huge impact on the way we write and organize co
 The ideas of immutability, purity, lazy evaluation, higher-order functions, and many others have influenced the capabilities present in any modern programming language.
 C++ is one such language, especially since the C++11 standard, and it continues to evolve in this direction.
 
-This post is influenced by Ivan Cukic's "Functional Programming in C++" [book](https://www.manning.com/books/functional-programming-in-c-plus-plus), written in 2018 and covering features up to the C++17 standard.
+This post is influenced by Ivan Cukic's "Functional Programming in C++" [book](https://www.manning.com/books/functional-programming-in-c-plus-plus){:target="_blank" rel="noopener"}, written in 2018 and covering features up to the C++17 standard.
 In this post, I expand on the topic by discussing the latest features in C++20 and C++23 standards related to functional programming paradigms.
 My goal is to show how modern C++ features can be used to write clean and functional code in practice.
 

@@ -8,31 +8,30 @@ tags:
   - assistants
   - maps
   - spatial
-published: false
 excerpt: "Researching how popular AI assistants integrate mapping services and how to use AI to find places, build routes, plan trips and more."
 ---
 
-There is a clear trend towards integrating mapping services into AI assistants. While [userbases are growing](https://www.cnbc.com/2025/08/04/openai-chatgpt-700-million-users.html) and scope of tasks requested from assistants is becoming more and more complex, maps-related features like places search and routing are becoming a potential competitive advantage. That is why model vendors invest in map services and integrate them into their models. While companies having their own map services, like Microsoft and Google, have a natural advantage, the importance of maps-related features in AI assistants is driving all market leaders in this direction. In this article, we will discuss how popular AI assistants handle maps-related tasks and what are the differences in their approaches.
+There is a clear trend towards integrating mapping services into AI assistants. While [userbases are growing](https://www.cnbc.com/2025/08/04/openai-chatgpt-700-million-users.html){:target="_blank" rel="noopener"} and scope of tasks requested from assistants is becoming more and more complex, maps-related features like places search and routing are becoming a potential competitive advantage. That is why model vendors invest in map services and integrate them into their products. While companies providing their own map services, like Microsoft and Google, have a natural advantage, the importance of maps-related features in AI assistants is driving all market leaders in this direction. In this article, we will discuss how popular AI assistants handle maps-related tasks and what are the differences in their approaches.
 
 <!--more-->
 
 ## Why Do AI Assistants Need Maps?
 
-Digital maps and services are everyday necessities nowadays - from direct usage of maps to navigate from A to B to discovery queries such as where to go for dinner today. Map services provide an extensive toolkit essential for other applications: food delivery, weather apps, taxi orders and many others. However, while LLMs excel at processing language and information, they fundamentally lack [spatial reasoning](https://arxiv.org/abs/2310.03249) that humans take for granted - concepts like proximity, direction, or the relationship between locations remain abstract to them. There is no surprise that the absence of map services in AI assistants became obvious as soon as assistants started to replace functions previously implemented by specialized services.
+Digital maps and services are everyday necessities nowadays - from direct usage of maps to navigate from A to B to discovery queries such as where to go for dinner today. Map services  also provide an extensive toolkit essential for other applications: food delivery, weather apps, taxi orders and many others. But now people frequently prefer to ask ChatGPT for complex problems like planning trips rather than juggling between Web Search, TripAdvisor and Maps, because it's much more convenient to have all information available in one place and processed by an AI assistant, giving you a friendly, clear and structured answer in your language.
 
-Consider how people now prefer to plan trips with ChatGPT rather than juggling between Google Search, TripAdvisor and Maps, because it's much more convenient to have all information available in one place and processed by an LLM, giving you a friendly, clear and structured answer in your language. Yet when you ask something like "find me a coffee shop on my way to work that won't make me late," current AI assistants often stumble. They provide a list of highly-rated cafes without understanding which ones actually lie along your route or how the detour might affect your arrival time. The assistant might know about popular coffee shops in your city, but it cannot reason about the spatial relationship between your home, these shops, and your workplace, nor can it factor in real-time conditions like morning traffic patterns.
+However, while LLMs excel at processing text and information, they fundamentally lack [spatial reasoning](https://arxiv.org/abs/2310.03249){:target="_blank" rel="noopener"} that humans take for granted - concepts like proximity, direction, or the relationship between locations remain abstract to them. This occurs because LLMs lack comprehensive geographic data in their memory - they might know the address of a famous museum but not its current opening hours, or they might suggest restaurants without understanding that three "nearby" options are actually in completely opposite directions from each other.
 
-This occurs because LLMs lack comprehensive geographic data in their memory - they might know the address of a famous museum but not its current opening hours, or they might suggest restaurants without understanding that three "nearby" options are actually in completely opposite directions from each other. And of course, LLMs know nothing about current traffic conditions, construction zones, or when you should leave to catch your 15:30 flight considering real-world factors. That's why LLMs need integration with existing map services that can provide precise, complete and current information on geo-related queries, transforming them from language processors into spatially aware assistants capable of solving real-world navigation and discovery problems.
+That's why AI assistants need integration with existing map services that can provide precise, complete and current information on geo-related queries. This integration adds an ability to solve a whole new class of real-world tasks that were previously hard to perform with LLMs.
 
 ## The Expected Features
 
-So, what do regular users expect from AI assistants when they ask about maps-related tasks? Users expect the same features from AI assistants that specialized map services provide, but wrapped by an AI assistant's interface. Here are the top abilities that are provided by specialized map services and required for curated, spatial-aware AI answers:
+So, what do regular users expect from AI assistants when they ask about maps-related tasks? Users expect the same features that specialized map services provide, but wrapped into a chat interface. Here are the top abilities that are provided by specialized map services and required for curated, spatial-aware AI answers:
 
-1. **An ability to render maps with marks and routes on it.** Basic rendering is required to be able to show the user where the places are located. While lists of places are useful, they are not enough to understand the context and the relationship between the places.
-2. **Spatial reasoning: an ability to calculate routes and travel time between places.** Routing is not only required to be able to show the user the best way to get from one place to another, but also to understand the mutual location of places and their relationships.
-3. **Access to up-to-date information about places, such as category search, opening hours, reviews and other details.** Most assistants can call a web search tool to get this information, but map services are able to provide this information more accurately and in a more structured way.
+1. **An ability to render maps with marks and routes on it.** Basic rendering is required to be able to show the user where the places are on the map. While text lists and descriptions are useful, they are not enough to understand the relative location of the places.
+2. **Spatial reasoning: an ability to calculate routes and travel time between places.** Routing is not only required to be able to show the user the best way to get from one place to another, but also for AI assistant to understand the mutual location of places and travel time between them.
+3. **Access to up-to-date information about places, such as reviews, phone numbers, opening hours and other details.** Most assistants can call a web search tool to get this information, but map services are able to provide this information more accurately and in a more structured way.
 
-We will test how popular AI assistants handle these features, and what are the differences in their approaches and which integrations do they provide.
+We will test how popular AI assistants handle these features, what are the differences in their approaches and which integrations do they provide.
 
 ## Test Setup
 
@@ -40,21 +39,20 @@ It is not easy to get consistent results when working with AI assistants, especi
 
 1. Testing 5 popular AI assistants: Gemini, Copilot, ChatGPT, Perplexity and Claude.
 2. Testing only Android/iOS versions, as mobile apps are more likely to have native platform maps integration.
-3. Using thinking mode where possible to get access to thinking logs and see how the assistant is reasoning about the task.
-4. As AI chat assistants are constantly evolving, the results of this analysis are strictly limited to the time of writing (September 2025).
-5. Some features I mention may not be available in your country or region.
+3. Using thinking/reasoning mode where possible to get access to thinking logs and see how the assistant is reasoning about the task.
+4. As AI assistants are constantly evolving, the results of this analysis are strictly limited to the time of writing (September 2025).
 
 I mainly used 2 prompts for testing:
-1. "Find top 5 Asian restaurants in Berlin and show them on the map." - to test map rendering and category search.
+1. "Find top 5 Asian restaurants in Berlin and show them on the map." - to test map rendering and places search.
 2. "How to reach from 44.80, 20.46 to 44.78, 20.48 and visit the pharmacy between?" - to test routing and spatial reasoning capabilities. I used random coordinates in Belgrade, Serbia as a start and end points.
 
 ## Analysis of Popular AI Assistants
 
-Now, before a deep dive, here is a summary of the results I got:
+Before a deep dive, here is a summary of the results I got:
 
 | Assistant   | Maps Rendering                                             | Spatial Reasoning | Places Search                        |
 |-------------|-----------------------------------------------------------|-------------------|----------------------------------------|
-| Gemini      | Embed Maps In Responses With Google Maps JavaScript API   | Yes               | Web Search + Google Maps Places API    |
+| Gemini      | Interactive Google Maps In Responses | Yes               | Web Search + Google Maps Places API    |
 | Copilot     | TomTom Maps And Google Maps For Native                     | Yes               | Web Search + Google Maps Reviews       |
 | ChatGPT     | No, Possible MapBox Integration              | No                | Web Search                             |
 | Perplexity  | Limited, MapBox                                                    | Minimal        | Web Search + TripAdvisor + Selfbook    |
@@ -62,7 +60,7 @@ Now, before a deep dive, here is a summary of the results I got:
 
 ### Google Gemini
 
-Google Gemini is a clear leader here, having a [native integration with various Google Maps APIs](https://blog.google/products/maps/gemini-google-maps-navigation-updates/) and providing a seamless experience for users. Gemini can render an interactive map directly in chat, do routing via Directions API and provide consistent answers for repeating and complex questions. Google is also going further, integrating maps APIs into [Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/grounding-with-google-maps) and allowing developers to use [Gemini models to generate maps-related content](https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative).
+Google Gemini is a clear leader here, having a [native integration with various Google Maps APIs](https://blog.google/products/maps/gemini-google-maps-navigation-updates/){:target="_blank" rel="noopener"} and providing a seamless experience for users. Gemini can render an interactive map directly in chat, do routing via Directions API and provide consistent answers for repeating and complex questions. Google is also going further, integrating maps APIs into [Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/grounding-with-google-maps){:target="_blank" rel="noopener"} and allowing developers to use [Gemini models to generate maps-related content](https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative){:target="_blank" rel="noopener"}.
 
 I also noticed interesting lines in Gemini's thinking logs when performing category search queries:
 
@@ -78,27 +76,27 @@ Google's ecosystem includes, besides Maps, services like Hotel, Documents, Calen
 
 ### Microsoft Copilot
 
-Microsoft, owning Bing Maps, is an active player in the map services market. But it seems like for its AI assistant Copilot, it's using another technology - Azure Maps backed by [TomTom](https://news.microsoft.com/source/2019/02/04/tomtom-expands-partnership-with-microsoft-to-power-microsoft-cloud-offerings-with-location-based-services/). Also, it has an [integration with Google Maps Reviews](https://www.seroundtable.com/copilot-using-google-maps-reviews-39947.html) for places search, enhancing its own results with much more comprehensive Google data. While using TomTom Maps for intermediate results and places search, Copilot provided me with a link to Google Maps application for routing. Overall, Microsoft's assistant successfully attempts to provide a seamless experience for users, but it's not as smooth as Google's Gemini.
+Microsoft, owning Bing Maps, is an active player in the map services market. It seems like for its AI assistant Copilot, it's using another technology - Azure Maps backed by [TomTom](https://news.microsoft.com/source/2019/02/04/tomtom-expands-partnership-with-microsoft-to-power-microsoft-cloud-offerings-with-location-based-services/){:target="_blank" rel="noopener"}. Also, it has an [integration with Google Maps Reviews](https://www.seroundtable.com/copilot-using-google-maps-reviews-39947.html){:target="_blank" rel="noopener"} for places search, enhancing its own results with much more comprehensive Google data. While using TomTom Maps for intermediate results and places search, Copilot provided me with a link to Google Maps application for routing. Overall, Microsoft's assistant successfully attempts to provide a seamless experience for users, but it's not as smooth as Google's Gemini.
 
 {% include image-carousel.html id="copilot-carousel" img1="/assets/images/posts/2025-09-28-maps-ai/copilot_search.jpg" alt1="Copilot Maps Search Interface" img2="/assets/images/posts/2025-09-28-maps-ai/copilot_routes.jpg" alt2="Copilot Maps Routing Feature" %}
 
 ### OpenAI ChatGPT
 
-OpenAI, being the most popular AI assistant, surprisingly, does not have any native maps integration. When directly asked to show a map, it's providing a broken web-link to Google Maps application. It also failed a spatial reasoning test, suggesting to visit a pharmacy 5 kilometers away from the route points. It also does not have any category search capabilities, suggesting to use web search instead.
+OpenAI, being the most popular AI assistant, surprisingly, does not have any native maps integration. When directly asked to show a map, it's providing a broken web-link to Google Maps application. It also failed a spatial reasoning test, suggesting to visit a pharmacy 5 kilometers away from the route points. It also does not have any specific places search capabilities, suggesting to use web search instead.
 
-MapBox integration in ChatGPT was [officially confirmed](https://www.mapbox.com/blog/mapbox-2024-year-in-review), and I personally saw it in August 2025, but right now it is not working for me, so it is not clear whether this integration was removed or restricted in my area.
+MapBox integration in ChatGPT was [officially confirmed](https://www.mapbox.com/blog/mapbox-2024-year-in-review){:target="_blank" rel="noopener"} in 2024, and I personally saw it in August 2025, but right now it is not working for me, so it is not clear whether this integration was removed or restricted in my area.
 
 {% include image-carousel.html id="chatgpt-carousel" img1="/assets/images/posts/2025-09-28-maps-ai/chatgpt.jpg" alt1="ChatGPT Maps Interface" %}
 
 ### Perplexity
 
-Perplexity, being an "AI-search" from the beginning, is good at gathering and structuring information from the Internet. This ability, combined with native integrations with [TripAdvisor](https://tripadvisor.mediaroom.com/press-releases?item=126807) and [Selfbook](https://www.phocuswire.com/perplexity-selfbook-agentic-ai-travel-booking-tripadvisor), makes it a unique choice for scenarios like trip planning and restaurant search. Perplexity shows a simple [MapBox map preview](https://www.testingcatalog.com/icymi-perplexity-rolls-out-live-local-search-maps-powered-by-mapbox/) for places found and redirects to native maps application for routing. It answered correctly to my routing question, but I see in search logs that it totally relies on web-sources for this. This means that for more tricky queries, when less information is available online, it may fail to provide a correct answer.
+Perplexity, being an "AI-search" from the beginning, is good at gathering and structuring information from the Internet. This ability, combined with native integrations with [TripAdvisor](https://tripadvisor.mediaroom.com/press-releases?item=126807){:target="_blank" rel="noopener"} and [Selfbook](https://www.phocuswire.com/perplexity-selfbook-agentic-ai-travel-booking-tripadvisor){:target="_blank" rel="noopener"}, makes it a unique choice for scenarios like trip planning and restaurant search. Perplexity shows a simple [MapBox map preview](https://www.testingcatalog.com/icymi-perplexity-rolls-out-live-local-search-maps-powered-by-mapbox/){:target="_blank" rel="noopener"} for places found and redirects to native maps application for routing. It answered correctly to my routing question, but I see in search logs that it totally relies on web-sources for this. This means that for more tricky queries, when less information is available online, it may fail to provide a correct answer.
 
 {% include image-carousel.html id="perplexity-carousel" img1="/assets/images/posts/2025-09-28-maps-ai/perplexity_search.jpg" alt1="Perplexity Maps Search Interface" img2="/assets/images/posts/2025-09-28-maps-ai/perplexity_routes.jpg" alt2="Perplexity Maps Routing Feature" %}
 
 ### Anthropic Claude
 
-Claude effectively integrates [native map services in its mobile app](https://support.anthropic.com/en/articles/11869629-using-claude-with-android-apps), having an ability to render a map with marks and widgets, redirecting to native maps application for routing. Like other assistants, it also relies on web search for places discovery and spatial reasoning.
+Claude effectively integrates [native map services in its mobile app](https://support.anthropic.com/en/articles/11869629-using-claude-with-android-apps){:target="_blank" rel="noopener"}, having an ability to render a map with marks and widgets, redirecting to native maps application for routing. Like other assistants, it also relies on web search for places discovery and spatial reasoning.
 
 {% include image-carousel.html id="claude-carousel" img1="/assets/images/posts/2025-09-28-maps-ai/claude_search.jpg" alt1="Claude Maps Search Interface" img2="/assets/images/posts/2025-09-28-maps-ai/claude_routes.jpg" alt2="Claude Maps Routing Feature" %}
 
