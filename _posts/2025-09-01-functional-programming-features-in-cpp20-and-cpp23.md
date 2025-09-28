@@ -8,18 +8,22 @@ tags:
   - c++20
   - c++23
   - functional programming
-excerpt: "Showing how latest C++ features can be applied for functional-style programming in real projects."
+excerpt: "Showing how latest C++ features can be applied for functional style programming in practice."
 ---
 
-In this article I demonstrate functional programming paradigms by transforming a single-file C++17 JSON parser through six commits using C++20 and C++23 features.
-Each commit illustrates single functional programming paradigm and C++ feature that implements it, prioritizing declarative and abstract code over performance.
-My goal is to show how modern C++ features may be applied for writing clean and functional code in real life projects.
+Functional programming has had a huge impact on the way we write and organize code, even in languages that are not considered truly functional.
+The ideas of immutability, purity, lazy evaluation, higher-order functions, and many others have influenced the capabilities present in any modern programming language.
+C++ is one such language, especially since the C++11 standard, and it continues to evolve in this direction.
+
+This post is influenced by Ivan Cukic's "Functional Programming in C++" [book](https://www.manning.com/books/functional-programming-in-c-plus-plus), written in 2018 and covering features up to the C++17 standard.
+In this post, I expand on the topic by discussing the latest features in C++20 and C++23 standards related to functional programming paradigms.
+My goal is to show how modern C++ features can be used to write clean and functional code in practice.
 
 <!--more-->
 
 ## How the Example Project is Organized
 
-To demonstrate how modern C++ features can transform C++17 code, I created a single-file [project](https://github.com/peschinskiy/blogpost-json_stream_parser){:target="_blank" rel="noopener"} implementing a single-pass streaming JSON parser.
+To keep things practical, let's use a simple, single-file [streaming JSON parser](https://github.com/peschinskiy/blogpost-json_stream_parser){:target="_blank" rel="noopener"} project written in C++17.
 The parser transforms an input stream of characters to formatted JSON just like `jq .` does.
 For simplicity, this implementation omits booleans and nulls, as well as some proper error handling.
 The entire project is implemented in one file and can be copy-pasted to an online compiler like [Coliru](https://coliru.stacked-crooked.com/a/c9e1c43be4588e49){:target="_blank" rel="noopener"}.
@@ -54,24 +58,25 @@ You can compare [initial](https://github.com/peschinskiy/blogpost-json_stream_pa
 
 ## Applying Features
 
+I will demonstrate diverse functional programming paradigms by transforming our JSON parser through 6 commits using latest C++ standards features.
+Each commit illustrates single functional programming paradigm and C++ feature that implements it, prioritizing declarative and abstract code over performance.
+
 ### Lazy Evaluation - Coroutines
 
-Let's start with the the serialization [function](https://github.com/peschinskiy/blogpost-json_stream_parser/blob/master/json_17.cpp#L371){:target="_blank" rel="noopener"}:
+Let's start with the the serialization [function](https://github.com/peschinskiy/blogpost-json_stream_parser/blob/master/json_17.cpp#L371){:target="_blank" rel="noopener"}, accepting output stream, intendation params and json object params:
 
 ```c++
 void serialize(std::ostream& out, uint16_t indent_base, uint16_t level, json::json& value)
 ```
 
 The dependency on `std::ostream` creates a side effect, which is hard to avoid since streaming serialization requires immediate output of parsed items.
-A cleaner approach would be to return a character stream:
+But the cleaner approach would be to return a character stream, where `stream_of_chars` maintains intermediate parsing state:
 
 ```c++
 stream_of_chars serialize(uint16_t indent_base, uint16_t level, json::json& value)
 ```
 
-Where `stream_of_chars` maintains intermediate parsing state - non-trivial to implement.
-
-Coroutines solve this problem by providing stackless functions that can suspend and resume execution.
+C++20 Coroutines are exactly a solution for this, providing stackless functions that can suspend and resume execution.
 While C++20 provides interfaces for manual [coroutines](https://en.cppreference.com/w/cpp/language/coroutines.html){:target="_blank" rel="noopener"} implementation, C++23 [introduced](https://en.cppreference.com/w/cpp/coroutine/generator.html){:target="_blank" rel="noopener"} the first standard coroutine `std::generator`:
 
 ```diff
