@@ -6,7 +6,6 @@ minimal_mistakes_skin: "default" # Options: default, air, aqua, contrast, dark, 
 locale: "en-US"
 title: "pure++" 
 title_separator: "|"
-subtitle: "Igor Peschinskiy's Tech Blog"
 name: "Igor Peschinskiy"
 description: >-
   pure++ is a technical blog focused on underexplored topics at the intersections of software engineering domains
