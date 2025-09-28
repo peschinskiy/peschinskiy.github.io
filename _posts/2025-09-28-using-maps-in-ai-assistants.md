@@ -54,7 +54,7 @@ Before a deep dive, here is a summary of the results I got:
 |-------------|-----------------------------------------------------------|-------------------|----------------------------------------|
 | Gemini      | Interactive Google Maps In Responses | Yes               | Web Search + Google Maps Places API    |
 | Copilot     | TomTom Maps And Google Maps For Native                     | Yes               | Web Search + Google Maps Reviews       |
-| ChatGPT     | No, Possible MapBox Integration              | No                | Web Search                             |
+| ChatGPT     | No, Possible MapBox Integration              | Minimal                | Web Search                             |
 | Perplexity  | Limited, MapBox                                                    | Minimal        | Web Search + TripAdvisor + Selfbook    |
 | Claude      | Native Maps On Mobile                                     | Limited        | Web Search                             |
 
@@ -70,7 +70,7 @@ I've decided to prioritize using Google Search initially, following the guidance
 
 Seems like, besides having access to the huge Google Maps Places database, Gemini is explicitly told by developers to use Google Search initially and then use Maps for retrieving specific details like locations, reviews, opening hours, etc.
 
-Google's ecosystem includes, besides Maps, services like Hotel, Documents, Calendar and many more, which is also integrated in Gemini. This makes Google's AI assistant a comprehensive tool for multimodal, complex and context-aware tasks.
+Google's ecosystem includes, besides Maps, services like Hotels, Documents, Calendar and many more, which is also integrated in Gemini. This makes Google's AI assistant a comprehensive tool for multimodal, complex and context-aware tasks.
 
 {% include image-carousel.html id="gemini-carousel" img1="/assets/images/posts/2025-09-28-maps-ai/gemini_search.jpg" alt1="Gemini Maps Search Interface" img2="/assets/images/posts/2025-09-28-maps-ai/gemini_routes.jpg" alt2="Gemini Maps Routing Feature" img3="/assets/images/posts/2025-09-28-maps-ai/gemini_reason.jpg" alt3="Gemini Spatial Reasoning" %}
 
@@ -82,7 +82,7 @@ Microsoft, owning Bing Maps, is an active player in the map services market. It 
 
 ### OpenAI ChatGPT
 
-OpenAI, being the most popular AI assistant, surprisingly, does not have any native maps integration. When directly asked to show a map, it's providing a broken web-link to Google Maps application. It also failed a spatial reasoning test, suggesting to visit a pharmacy 5 kilometers away from the route points. It also does not have any specific places search capabilities, suggesting to use web search instead.
+OpenAI, being the most popular AI assistant, surprisingly, does not seem to have any maps integration. When directly asked to show a map, it's providing a broken link to Google Maps application. It also failed a spatial reasoning test, suggesting to visit a pharmacy 5 kilometers away from the route points. And ChatGPT does not have any specific places search capabilities, suggesting to use web search instead.
 
 MapBox integration in ChatGPT was [officially confirmed](https://www.mapbox.com/blog/mapbox-2024-year-in-review){:target="_blank" rel="noopener"} in 2024, and I personally saw it in August 2025, but right now it is not working for me, so it is not clear whether this integration was removed or restricted in my area.
 
