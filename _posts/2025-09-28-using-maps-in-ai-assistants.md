@@ -1,6 +1,6 @@
 ---
 title: "Using Maps in AI Assistants: How Do ChatGPT, Gemini and Others Handle Maps-Related Queries?"
-date: 2025-09-28 18:41:00 +0200
+date: 2025-09-28 21:12:00 +0200
 categories:
   - AI
   - Maps
@@ -23,7 +23,7 @@ However, while LLMs excel at processing text and information, they fundamentally
 
 That's why AI assistants need integration with existing map services that can provide precise, complete and current information on geo-related queries. This integration adds an ability to solve a whole new class of real-world tasks that were previously hard to perform with LLMs.
 
-## The Expected Features
+## Expected Features
 
 So, what do regular users expect from AI assistants when they ask about maps-related tasks? Users expect the same features that specialized map services provide, but wrapped into a chat interface. Here are the top abilities that are provided by specialized map services and required for curated, spatial-aware AI answers:
 
