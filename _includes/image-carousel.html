@@ -1,0 +1,41 @@
+<!-- Simple Image Carousel Include -->
+{% assign carousel_id = include.id %}
+{% assign img1 = include.img1 %}
+{% assign alt1 = include.alt1 %}
+{% assign img2 = include.img2 %}
+{% assign alt2 = include.alt2 %}
+{% assign img3 = include.img3 %}
+{% assign alt3 = include.alt3 %}
+
+<div class="vendor-carousel" id="{{ carousel_id }}">
+  <div class="carousel-container">
+    {% if img1 %}
+    <div class="carousel-slide active">
+      <img src="{{ img1 }}" alt="{{ alt1 }}" />
+    </div>
+    {% endif %}
+    {% if img2 %}
+    <div class="carousel-slide">
+      <img src="{{ img2 }}" alt="{{ alt2 }}" />
+    </div>
+    {% endif %}
+    {% if img3 %}
+    <div class="carousel-slide">
+      <img src="{{ img3 }}" alt="{{ alt3 }}" />
+    </div>
+    {% endif %}
+  </div>
+  
+  {% assign total_images = 0 %}
+  {% if img1 %}{% assign total_images = total_images | plus: 1 %}{% endif %}
+  {% if img2 %}{% assign total_images = total_images | plus: 1 %}{% endif %}
+  {% if img3 %}{% assign total_images = total_images | plus: 1 %}{% endif %}
+  
+  {% if total_images > 1 %}
+  <div class="carousel-nav">
+    {% if img1 %}<span class="nav-dot active" data-slide="1" data-carousel="{{ carousel_id }}"></span>{% endif %}
+    {% if img2 %}<span class="nav-dot" data-slide="2" data-carousel="{{ carousel_id }}"></span>{% endif %}
+    {% if img3 %}<span class="nav-dot" data-slide="3" data-carousel="{{ carousel_id }}"></span>{% endif %}
+  </div>
+  {% endif %}
+</div>
